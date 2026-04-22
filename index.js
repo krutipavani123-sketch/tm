@@ -2,47 +2,24 @@ $(function () {
     var $table = $('#table')
     var $remove = $('#remove')
 
-    function getIdSelections () {
-        return $table.bootstrapTable('getSelections').map(function (row) {
-            return row.id   
-        })
-    }
 
-    $remove.click(function () {
-        const ids = getIdSelections()
 
-        if (ids.length === 0) {
-            alert("Please select at least one row")
-            return
-        }
-
-        $.ajax({
-            url: "delete_task.php",
-            type: "POST",
-            data: { ids: ids },
-            success: function (response) {
-                console.log(response)
-
-                $table.bootstrapTable('remove', {
-                    field: 'id',
-                    values: ids
-                })
-
-                $remove.prop('disabled', true)
-            }
-        })
+  function getIdSelections () {
+    return $table.bootstrapTable('getSelections').map(function (row) {
+      return row.id
     })
-})
- function operateFormatter () {
-    return [
-      '<a class="like" href="javascript:void(0)" title="Like">',
-      '<i class="fa fa-heart"></i>',
-      '</a>  ',
-      '<a class="remove" href="javascript:void(0)" title="Remove">',
-      '<i class="fa fa-trash"></i>',
-      '</a>'
-    ].join('')
+
+     $remove.click(function () {
+      const ids = getIdSelections()
+
+      $table.bootstrapTable('remove', {
+        field: 'id',
+        values: ids
+      })
+      $remove.prop('disabled', true)
+    })
   }
+})
 
 $(document).ready(function () {
     getdata();

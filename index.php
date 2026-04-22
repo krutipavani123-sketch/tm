@@ -38,6 +38,10 @@ include 'navbar.php';
                 </button>
             </div>
 
+   <!-- Method B: Using Auto-Margin (inside a d-flex parent) -->
+            <div class="d-flex">
+                <input id="srchbar" class="form-control ms-auto w-25" type="search" placeholder="Search">
+            </div>
 
             <table
                 id="table"

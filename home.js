@@ -5,10 +5,11 @@ $(document).ready(function () {
 
         pagination: true,
         sidePagination: 'server',
-        
+
 
         pageSize: 5,
         pageList: [3, 5, 10, 25],
+        height: 460,
 
         search: true,
 
@@ -23,7 +24,7 @@ $(document).ready(function () {
         $('#completeTasks').html("Complete: " + data.counts.complete);
     });
 
-    
+
     $(document).on('click', '.complete', function () {
         let id = $(this).data('id');
 
@@ -32,7 +33,7 @@ $(document).ready(function () {
         });
     });
 
- 
+
     $(document).on('click', '.pending', function () {
         let id = $(this).data('id');
 
@@ -41,7 +42,7 @@ $(document).ready(function () {
         });
     });
 
-  
+
     $(document).on('click', '.delete', function () {
         let id = $(this).data('id');
 
